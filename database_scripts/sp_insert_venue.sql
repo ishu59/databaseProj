@@ -1,4 +1,4 @@
-CREATE PROCEDURE `insert_venue` (IN venue_name varchar(50),IN venue_city varchar(50),IN venue_capacity int(11))
+CREATE PROCEDURE `sp_insert_venue` (IN venue_name varchar(50),IN venue_city varchar(50),IN venue_capacity int(11))
 BEGIN
 	DECLARE EXIT HANDLER FOR SQLEXCEPTION
 	BEGIN

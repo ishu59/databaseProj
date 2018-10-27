@@ -1,4 +1,4 @@
-CREATE PROCEDURE insert_umpire (IN umpire_name varchar(50))
+CREATE PROCEDURE sp_insert_umpire (IN umpire_name varchar(50))
 BEGIN
 DECLARE EXIT HANDLER FOR SQLEXCEPTION
 	BEGIN
