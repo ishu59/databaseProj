@@ -7,7 +7,7 @@ USE cricket_analytics;
 CREATE TABLE team_master
 (
   team_id INT NOT NULL AUTO_INCREMENT,
-  team_name VARCHAR(100) NOT NULL,
+  team_name VARCHAR(100) NOT NULL UNIQUE,
   team_mascot VARCHAR(100) NOT NULL,
   team_desc VARCHAR(1000) NOT NULL,
   PRIMARY KEY (team_id)
@@ -17,7 +17,7 @@ CREATE TABLE venue
 (
   venue_id INT NOT NULL AUTO_INCREMENT,
   match_id_fk INT NOT NULL,
-  venue_name VARCHAR(50) NOT NULL,
+  venue_name VARCHAR(50) NOT NULL UNIQUE,
   venue_city VARCHAR(50) NOT NULL,
   venue_capacity INT NOT NULL,
   PRIMARY KEY (venue_id)
@@ -26,14 +26,14 @@ CREATE TABLE venue
 CREATE TABLE match_umpire
 (
   umpire_id INT NOT NULL AUTO_INCREMENT,
-  umpire_name VARCHAR(50) NOT NULL,
+  umpire_name VARCHAR(50) NOT NULL UNIQUE,
   PRIMARY KEY (umpire_id)
 );
 
 CREATE TABLE player_master
 (
   player_id INT NOT NULL AUTO_INCREMENT,
-  player_name VARCHAR(100) NOT NULL,
+  player_name VARCHAR(100) NOT NULL UNIQUE,
   Player_dob DATE NOT NULL,
   team_id_fk INT NOT NULL,
   player_nationality VARCHAR(100) NOT NULL,
@@ -78,7 +78,7 @@ CREATE TABLE match_details
 CREATE TABLE user_master
 (
   user_id INT NOT NULL AUTO_INCREMENT,
-  user_name VARCHAR(20) NOT NULL,
+  user_name VARCHAR(20) NOT NULL UNIQUE,
   user_access INT NOT NULL,
   PRIMARY KEY (user_id)
 );
