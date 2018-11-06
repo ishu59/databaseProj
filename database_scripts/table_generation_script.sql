@@ -53,6 +53,7 @@ CREATE TABLE match_master
   match_result VARCHAR(100) NOT NULL,
   match_extras INT,
   umpire_id_fk INT NOT NULL,
+  match_date DATETIME NOT NULL,
   PRIMARY KEY (match_id),
   FOREIGN KEY (umpire_id_fk) REFERENCES match_umpire(umpire_id),
   FOREIGN KEY (team_id_1_fk) REFERENCES team_master(team_id),
