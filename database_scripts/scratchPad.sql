@@ -11,3 +11,9 @@ insert into team_master (team_name,team_mascot,team_desc) values ('name 2','masc
 insert into team_master (team_name,team_mascot,team_desc) values ('name 3','mascot 3', 'desc 3');
 
 select * from team_master;
+
+Insert into team_master (team_name,team_mascot,team_desc) values ('ee','rr','ttt');
+
+select team_id,team_name from team_master;
+
+Insert into player_master (player_name,Player_dob,player_nationality) values ('ashish','2017-01-01','india',7);
