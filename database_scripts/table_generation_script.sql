@@ -48,12 +48,15 @@ CREATE TABLE match_master
   team_id_1_fk INT NOT NULL,
   team_id_2_fk INT NOT NULL,
   venue_id_fk INT NOT NULL,
-  score_team_1 VARCHAR(10) NOT NULL,
-  score_team_2 VARCHAR(10) NOT NULL,
+  score_team_1 INT NOT NULL,
+  score_team_2 INT NOT NULL,
+  wicket_team_1 INT NOT NULL,
+  wicket_team_2 INT NOT NULL,
   match_result VARCHAR(100) NOT NULL,
   match_extras INT,
   umpire_id_fk INT NOT NULL,
   match_date DATETIME NOT NULL,
+  
   PRIMARY KEY (match_id),
   FOREIGN KEY (umpire_id_fk) REFERENCES match_umpire(umpire_id),
   FOREIGN KEY (team_id_1_fk) REFERENCES team_master(team_id),
@@ -84,7 +87,7 @@ CREATE TABLE user_master
   PRIMARY KEY (user_id)
 );
 
-
+select 'Database and required structure Created successfully';
 
 
  
