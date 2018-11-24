@@ -1,0 +1,45 @@
+        <?php
+        global $conn;
+        $servername = "localhost";
+        $username = "root";
+        $password = "mysql";
+        $database = "cricket_analytics";
+        $conn = new mysqli($servername, $username, $password, $database);
+        $sql = "select team_id,team_name from team_master;";
+        foreach ($dbo->query($sql) as $row){//Array or records stored in $row
+            echo "<option value=$row[team_id]>$row[team_name]</option>";
+        }
+        ?>
+		
+		
+		
+		        <?php
+        global $conn;
+        $servername = "localhost";
+        $username = "root";
+        $password = "mysql";
+        $database = "cricket_analytics";
+        $conn = new mysqli($servername, $username, $password, $database);
+        $sql = "select team_id,team_name from team_master;";
+        $result = $conn->query($sql);
+        if($result){
+            echo "<table border=1px>";
+            while($row = $result->fetch_assoc()) {
+                echo "<option value=$row[team_id]>$row[team_name]</option>";
+            }
+        }
+        ?>
+		
+		
+		 <?php
+                global $conn;
+                $servername = "localhost";
+                $username = "root";
+                $password = "mysql";
+                $database = "cricket_analytics";
+                $conn = new mysqli($servername, $username, $password, $database);
+                $sql = "select team_id,team_name from team_master;";
+                foreach ($dbo->query($sql) as $row){//Array or records stored in $row
+                    echo "<option value=$row[team_id]>$row[team_name]</option>";
+                }
+                ?>
