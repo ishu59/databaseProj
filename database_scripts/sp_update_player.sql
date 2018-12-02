@@ -1,4 +1,5 @@
-CREATE PROCEDURE `sp_update_player` (in p_id int,in pname varchar(100), in p_dob date, in nat varchar(100))
+CREATE DEFINER=`root`@`localhost` PROCEDURE `sp_update_player`(in p_id int,in pname varchar(100), 
+in p_dob date, in nat varchar(100))
 BEGIN
 	DECLARE EXIT HANDLER FOR SQLEXCEPTION
 	BEGIN

@@ -28,7 +28,15 @@ call sp_searchPlayerName('john');
 
 select * from player_master where player_name like'%99%';
 call sp_searchPlayerName('99');
+
 select player_id,player_name,Player_dob,TIMESTAMPDIFF(YEAR, Player_dob, CURDATE()) as age,
     player_nationality, tm.team_name as teamName,tm.team_id as team_id
     from player_master as pm join team_master tm on pm.team_id_fk = tm.team_id
         WHERE  pm.player_name LIKE '%99%';
+        
+select player_id,player_name,Player_dob,TIMESTAMPDIFF(YEAR, Player_dob, CURDATE()) as age,
+    player_nationality, tm.team_name as teamName,tm.team_id as team_id
+    from player_master as pm join team_master tm on pm.team_id_fk = tm.team_id
+        WHERE pm.player_name LIKE '%99%';
+        
+select player_id,player_name,Player_dob,TIMESTAMPDIFF(YEAR, Player_dob, CURDATE()) as age, player_nationality, tm.team_name as teamName,tm.team_id as team_id from player_master as pm join team_master tm on pm.team_id_fk = tm.team_id WHERE pm.player_name LIKE '%99%';
