@@ -79,12 +79,17 @@ CREATE TABLE match_details
   FOREIGN KEY (player_id_fk) REFERENCES player_master(player_id)
 );
 
-CREATE TABLE user_master
+CREATE TABLE fixture_master
 (
-  user_id INT NOT NULL AUTO_INCREMENT,
-  user_name VARCHAR(20) NOT NULL UNIQUE,
-  user_access INT NOT NULL,
-  PRIMARY KEY (user_id)
+fixture_id INT NOT NULL AUTO_INCREMENT,
+series_name VARCHAR(50) NOT NULL UNIQUE,
+match_id_fk INT NOT NULL,
+match_date DATETIME,
+venue_id_fk INT NOT NULL,
+
+PRIMARY KEY (fixture_id),
+FOREIGN KEY (match_id_fk) REFERENCES match_master(match_id),
+FOREIGN KEY (venue_id_fk) REFERENCES venue (venue_id)
 );
 
 select 'Database and required structure Created successfully';
