@@ -94,9 +94,6 @@
 
 
 </div>
-        SELECT *
-        FROM pages
-        WHERE CONCAT_WS('', column1, column2, column3) LIKE '%keyword%'
 
     </div>
 </div>
