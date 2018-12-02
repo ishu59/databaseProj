@@ -16,7 +16,6 @@ CREATE TABLE team_master
 CREATE TABLE venue
 (
   venue_id INT NOT NULL AUTO_INCREMENT,
-  match_id_fk INT NOT NULL,
   venue_name VARCHAR(50) NOT NULL UNIQUE,
   venue_city VARCHAR(50) NOT NULL,
   venue_capacity INT NOT NULL,
@@ -37,9 +36,8 @@ CREATE TABLE player_master
   Player_dob DATE NOT NULL,
   team_id_fk INT NOT NULL,
   player_nationality VARCHAR(100) NOT NULL,
-  team_id INT NOT NULL,
   PRIMARY KEY (player_id),
-  FOREIGN KEY (team_id) REFERENCES team_master(team_id)
+  FOREIGN KEY (team_id_fk) REFERENCES team_master(team_id)
 );
 
 CREATE TABLE match_master

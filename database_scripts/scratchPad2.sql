@@ -18,5 +18,5 @@ select * from venue;
 INSERT INTO venue (venue_name,venue_city,venue_capacity) VALUES('name2','city2',10000);
 
 call sp_insert_venue('name3','city3',10000);
-
+call sp_insert_umpire('fname1','lname1');
 select * from venue;

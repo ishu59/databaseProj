@@ -8,8 +8,8 @@ in score_t1 int,
 in score_t2 int,
 in wicket_1 int,
 in wicket_2 int,
-in m_result varchar(100),
-in m_extas int
+in m_result varchar(100)
+
 )
 BEGIN
 set @active = -1;
@@ -21,7 +21,7 @@ INSERT INTO `cricket_analytics`.`match_master`
 `score_team_1`,
 `score_team_2`,
 `match_result`,
-`match_extras`,
+
 `umpire_id_fk`,
 `match_date`,
 `created_date`)
@@ -34,7 +34,7 @@ score_t2,
 wicket_1,
 wicket_2,
 m_result,
-m_extas,
+
 ump_id,
 m_date,
 NOW(),
