@@ -22,24 +22,17 @@ INSERT INTO `cricket_analytics`.`match_master`
 `venue_id_fk`,
 `score_team_1`,
 `score_team_2`,
+`wicket_team_1`,
+`wicket_team_2`,
 `match_result`,
-
 `umpire_id_fk`,
 `match_date`,
-`created_date`)
+`created_date`,
+`is_active`)
 VALUES
-(team1_id,
-team2_id,
-venue_id,
-score_t1,
-score_t2,
-wicket_1,
-wicket_2,
-m_result,
-ump_id,
-m_date,
-NOW(),
- l_active);
+(team1_id,team2_id,venue_id,score_t1,score_t2,wicket_1,wicket_2,m_result,ump_id,cast(m_date as date),now(),l_active
+);
+
 
 select match_id from `cricket_analytics`.`match_master` order by match_id desc;
 
