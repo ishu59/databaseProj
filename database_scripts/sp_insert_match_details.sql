@@ -159,5 +159,8 @@ insert into match_details ( player_id_fk, player_score, player_wickets, player_b
 insert into match_details ( player_id_fk, player_score, player_wickets, player_balls_bowled, player_balls_faced, match_id_fk ) values (t2_p10_id,t2_p10_score,t2_p10_wickets,t2_p10_balls_bowled,t2_p10_balls_faced,m_id);
 insert into match_details ( player_id_fk, player_score, player_wickets, player_balls_bowled, player_balls_faced, match_id_fk ) values (t2_p11_id,t2_p11_score,t2_p11_wickets,t2_p11_balls_bowled,t2_p11_balls_faced,m_id);
 
+update match_master set `is_active` = 2
+WHERE `match_id` = m_id;
 
+select m_id;
 END
