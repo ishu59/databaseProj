@@ -4,7 +4,7 @@
 			Umpires
 	</head>
 	<body>
-		<b><a href=addUmpire.html>Add a New Umpire </a></b>
+		<b><a href=addUmpire.php>Add a New Umpire </a></b>
 		<?php
 			// First we will be Generating the SQL :
 			$sql = "c";

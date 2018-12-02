@@ -1,16 +1,28 @@
 <html>
 <head>
-    <title>
-        matchmaster
-    </title>
+    <title>Add Venue </title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+
 </head>
 <body>
+<div>
+    <!-- Latest compiled and minified CSS -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+    <!-- jQuery library -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <!-- Latest compiled JavaScript -->
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+</div>
+<div>
+    <?php include 'navBar.php';?>
 
+    <div class="container">
 
-<div style="width:50%; margin:auto;">
-    <div style="display:inline-block; width:75%;text-align:center;">
-
-        <form class="form-horizontal" action="matchmasterResult.phph.php" method="GET">
+        <form class="form-horizontal" action="addMatchResult.php" method="GET">
 
             <fieldset>
 
@@ -121,7 +133,8 @@
                 <div class="form-group">
                     <label class="col-md-4 control-label" for="m_date">Match Date</label>
                     <div class="col-md-4">
-                        <input id="m_date" name="m_date" type="date" placeholder="" class="form-control input-md">
+                        <input id="m_date" name="m_date" type="date"
+                               placeholder="" class="form-control input-md">
 
                     </div>
                 </div>
@@ -170,61 +183,20 @@
 
                     </div>
                 </div>
-
+                <!-- Button -->
+                <div class="form-group">
+                    <label class="col-md-4 control-label" for="player_submit"></label>
+                    <div class="col-md-4">
+                        <button id="submit" name="submit" class="btn btn-primary">Submit</button>
+                    </div>
+                </div>
             </fieldset>
-            <input type="submit" value="submit">
+
         </form>
 
-    </div></div>
-<div style="width:50%; margin:auto;">
-    <div style="display:inline-block; width:75%;text-align:center;">
-
-
-
-
-    </div></div>
+    </div>
 </div>
 
-<!-- 
-<?php
 
-
-
-
-// Create connection
-$servername = "localhost";
-$username = "root";
-$password = "mysql";
-$database = "cricket_analytics";
-$conn = new mysqli($servername, $username, $password, $database);
-
-
-$pr1 = "CALL `sp_insert_matchmaster`(".$POST["team1_id"].", ".$POST["team2_id"].", ".$POST["venue_id"].", ".$POST["ump_id"].", '".$POST["m_date"]."', ".$POST["score_t1"].", ".$POST["score_t2"].", ".$POST["wicket_1"].", ".$POST["wicket_2"].", '".$POST["m_result"]."')";
-
-
-
-$rs1 = mysqli_query($conn, $pr1) or die("Query fail: " . mysqli_error($conn));
-
-$result = $conn->query($sql);
-
-
-
-
-
-// Check connection
-if ($conn->connect_error) {
-    die("Connection failed: " . $conn->connect_error);
-
-}
-
-// Run a sql
-
-
-mysqli_close($conn);
-// Close connection
-
-
-
-?> -->
 </body>
 </html>

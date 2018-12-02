@@ -13,7 +13,7 @@ if ($first_name == "")
 			{
 				echo "<p><font color=\"blue\">Added successfully</font></p>";
 				echo "Something is wrong. ";
-				echo '<a href="addUmpire.html"> Try again!</a>';
+				echo '<a href="addUmpire.php"> Try again!</a>';
 				exit();
 			}
 

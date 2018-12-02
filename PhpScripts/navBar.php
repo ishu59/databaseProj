@@ -2,13 +2,14 @@
        <!-- Static navbar -->
 
 
-    <nav class="navbar navbar-default">
+    <nav class="navbar navbar-inverse">
         <div class="container-fluid">
             <div class="navbar-header">
                 <a class="navbar-brand" href="home.php">Cricket Analytics</a>
             </div>
             <ul class="nav navbar-nav">
                 <li ><a href="#">Home</a></li>
+                <li><a href="ViewMatch.php">Matches</a></li>
                 <li><a href="ViewPlayer.php">Player</a></li>
                 <li><a href="viewAllTeams.php">Team</a></li>
                 <li><a href="viewVenue.php">Venue</a></li>

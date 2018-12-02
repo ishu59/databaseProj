@@ -34,6 +34,6 @@ VALUES
 );
 
 
-select match_id from `cricket_analytics`.`match_master` order by match_id desc;
+select match_id from `cricket_analytics`.`match_master` order by match_id desc limit 1;
 
 END
