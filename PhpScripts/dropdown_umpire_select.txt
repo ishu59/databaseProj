@@ -1,0 +1,16 @@
+ <?php
+                            global $conn;
+                            $servername = "localhost";
+                            $username = "root";
+                            $password = "mysql";
+                            $database = "cricket_analytics";
+                            $conn = new mysqli($servername, $username, $password, $database);
+                            $sql = "select umpire_id,concat(first_name,' ',last_name) as uname from match_umpire;";
+                            $result = $conn->query($sql);
+                            if($result){
+                                echo "<table border=1px>";
+                                while($row = $result->fetch_assoc()) {
+                                    echo "<option value=$row[umpire_id]>$row[uname]</option>";
+                                }
+                            }
+                            ?>

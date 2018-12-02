@@ -27,7 +27,7 @@ select team_id,team_name, COALESCE(team_ranking,'NA') as team_ranking from team_
 
 insert into player_master (player_name,Player_dob,team_id_fk,player_nationality) values ();
 
-#insert into player_master (player_name,Player_dob,team_id_fk,player_nationality) values (	'John Doe1','1990-01-01',1,'hello world'	);
+insert into player_master (player_name,Player_dob,team_id_fk,player_nationality) values (	'John Doe1','1990-01-01',1,'hello world'	);
 insert into player_master (player_name,Player_dob,team_id_fk,player_nationality) values (	'John Doe2','1990-01-02',1,'hello world'	);
 insert into player_master (player_name,Player_dob,team_id_fk,player_nationality) values (	'John Doe3','1990-01-03',1,'hello world'	);
 insert into player_master (player_name,Player_dob,team_id_fk,player_nationality) values (	'John Doe4','1990-01-04',1,'hello world'	);

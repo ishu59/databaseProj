@@ -1,0 +1,18 @@
+<select id="venue_id" name="venue_id" class="form-control">
+                            <?php
+                            global $conn;
+                            $servername = "localhost";
+                            $username = "root";
+                            $password = "mysql";
+                            $database = "cricket_analytics";
+                            $conn = new mysqli($servername, $username, $password, $database);
+                            $sql = "select venue_name, venue_id from venue;";
+                            $result = $conn->query($sql);
+                            if($result){
+                                echo "<table border=1px>";
+                                while($row = $result->fetch_assoc()) {
+                                    echo "<option value=$row[venue_id]>$row[venue_name]</option>";
+                                }
+                            }
+                            ?>
+                        </select>
