@@ -1,5 +1,6 @@
-CREATE DEFINER=`root`@`localhost` PROCEDURE `sp_insert_match_master`(
-in  team1_id int,
+CREATE DEFINER=`root`@`localhost` PROCEDURE `sp_insert_matchmaster`(
+
+in team1_id int,
 in team2_id int,
 in venue_id int,
 in ump_id int,
@@ -40,6 +41,5 @@ m_date,
 NOW(),
  @active);
 
-select match_id from `cricket_analytics`.`match_master` order by match_id desc;
 
 END
