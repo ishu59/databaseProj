@@ -9,10 +9,12 @@ in score_t2 int,
 in wicket_1 int,
 in wicket_2 int,
 in m_result varchar(100)
-
 )
 BEGIN
-set @active = -1;
+
+Declare l_active  int default -1;
+set l_active = -1;
+
 INSERT INTO `cricket_analytics`.`match_master`
 (
 `team_id_1_fk`,
@@ -34,11 +36,10 @@ score_t2,
 wicket_1,
 wicket_2,
 m_result,
-
 ump_id,
 m_date,
 NOW(),
- @active);
+ l_active);
 
 select match_id from `cricket_analytics`.`match_master` order by match_id desc;
 

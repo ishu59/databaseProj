@@ -19,4 +19,25 @@ INSERT INTO venue (venue_name,venue_city,venue_capacity) VALUES('name2','city2',
 
 call sp_insert_venue('name3','city3',10000);
 call sp_insert_umpire('fname1','lname1');
-select * from venue;
+call sp_insert_match_master(1,2,1,1,Now(),111,222,1,3,'1won');
+ use cricket_analytics;
+select * from match_master;
+
+
+INSERT INTO `cricket_analytics`.`match_master`
+(
+`team_id_1_fk`,
+`team_id_2_fk`,
+`venue_id_fk`,
+`score_team_1`,
+`score_team_2`,
+`wicket_team_1`,
+`wicket_team_2`,
+`match_result`,
+`umpire_id_fk`,
+`match_date`,
+`created_date`,
+
+`is_active`)
+VALUES
+(1,2,1,111,222,1,3,'1won',1,now(),now(),-1);

@@ -39,7 +39,7 @@ CREATE TABLE player_master
   PRIMARY KEY (player_id),
   FOREIGN KEY (team_id_fk) REFERENCES team_master(team_id)
 );
-
+#drop table match_master;
 CREATE TABLE match_master
 (
   match_id INT NOT NULL AUTO_INCREMENT,
@@ -53,7 +53,9 @@ CREATE TABLE match_master
   match_result VARCHAR(100) NOT NULL,
   umpire_id_fk INT NOT NULL,
   match_date DATETIME NOT NULL,
-  
+  created_date DATETIME NOT NULL,
+  update_date DATETIME NOT NULL,
+  is_active int not null,
   PRIMARY KEY (match_id),
   FOREIGN KEY (umpire_id_fk) REFERENCES match_umpire(umpire_id),
   FOREIGN KEY (team_id_1_fk) REFERENCES team_master(team_id),
@@ -85,6 +87,7 @@ CREATE TABLE user_master
 );
 
 select 'Database and required structure Created successfully';
-
+SET FOREIGN_KEY_CHECKS=0;
+#SET FOREIGN_KEY_CHECKS=1;
 
  
