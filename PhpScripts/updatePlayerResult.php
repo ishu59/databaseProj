@@ -1,6 +1,6 @@
 <html>
 <head>
-    <title>Add results</title>
+    <title>Update player results</title>
 </head>
 <body>
 <div>
@@ -16,10 +16,10 @@
     $database = "cricket_analytics";
 
     //mysqli prepared statement
-    $teamName =$_GET['teamName'];
-    $mascot = $_GET['mascot'];
-    $desc = $_GET['desc'];
-    $rank = $_GET['rank'];
+    $id =$_GET['pid'];
+    $name = $_GET['playerName'];
+    $nationality = $_GET['nationality'];
+    $dob = $_GET['dateObirth'];
     $conn = new mysqli($servername, $username, $password, $database);
 
     // Check connection
@@ -28,14 +28,13 @@
     }
     echo "<p><font color=\"red\">Connected successfully</font></p>";
     $city = mysqli_real_escape_string($conn,$city);
-    $sql = "Insert into team_master (team_name,team_mascot,team_desc,team_ranking) 
-        values ('$teamName','$mascot','$desc',$rank);";
+    $sql = " call sp_update_player($id,'$name','$dob','$nationality');";
     echo "$sql";
     if ($conn->query($sql) === TRUE) {
-        echo "<p>Team added Successfully <a href='ViewTeam.php'>Check the result</a></p>";
+        echo "<p>Successful </p>";
     } else {
         //echo "<p>Error: " . $sql . "<br>" . $conn->error." <a href='addStudent.html'>Try Again</a> </p></p>";
-        echo "<p>Something went wrong! <a href='AddTeam.php'>Try Again</a> </p></p>";
+        echo "<p>Something went wrong! <a href='#'>Try Again</a> </p></p>";
     }
     ?>
 </div>

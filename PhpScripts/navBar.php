@@ -8,14 +8,14 @@
                 <a class="navbar-brand" href="home.php">Cricket Analytics</a>
             </div>
             <ul class="nav navbar-nav">
-                <li class="active"><a href="#">Home</a></li>
-                <li><a href="#">Page 1</a></li>
-                <li><a href="#">Page 2</a></li>
-                <li><a href="#">Page 3</a></li>
+                <li ><a href="#">Home</a></li>
+                <li><a href="ViewPlayer.php">Player</a></li>
+                <li><a href="viewAllTeams.php">Team</a></li>
+                <li><a href="viewVenue.php">Venue</a></li>
+                <li><a href="#">Umpire</a></li>
             </ul>
         </div>
     </nav>
-
     <!-- Main component for a primary marketing message or call to action -->
 
 </div> <!-- /container -->
