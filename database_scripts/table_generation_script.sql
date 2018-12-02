@@ -51,7 +51,6 @@ CREATE TABLE match_master
   wicket_team_1 INT NOT NULL,
   wicket_team_2 INT NOT NULL,
   match_result VARCHAR(100) NOT NULL,
-  match_extras INT,
   umpire_id_fk INT NOT NULL,
   match_date DATETIME NOT NULL,
   
