@@ -54,7 +54,7 @@ CREATE TABLE match_master
   umpire_id_fk INT NOT NULL,
   match_date DATETIME NOT NULL,
   created_date DATETIME NOT NULL,
-  update_date DATETIME NOT NULL,
+  update_date DATETIME,
   is_active int not null,
   PRIMARY KEY (match_id),
   FOREIGN KEY (umpire_id_fk) REFERENCES match_umpire(umpire_id),
