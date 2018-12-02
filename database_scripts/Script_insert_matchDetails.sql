@@ -1,4 +1,4 @@
-call sp_insert_match_details(2,
+call sp_insert_match_details(4,
 1	,
 74	,
 3	,

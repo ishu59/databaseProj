@@ -22,12 +22,13 @@ CREATE TABLE venue
   PRIMARY KEY (venue_id)
 );
 
-CREATE TABLE match_umpire
-(
-  umpire_id INT NOT NULL AUTO_INCREMENT,
-  umpire_name VARCHAR(50) NOT NULL UNIQUE,
-  PRIMARY KEY (umpire_id)
-);
+CREATE TABLE `match_umpire` (
+  `umpire_id` int NOT NULL AUTO_INCREMENT,
+  `first_name` varchar(50) NOT NULL,
+  `last_name` varchar(50) NOT NULL,
+  PRIMARY KEY (`umpire_id`)
+  )
+
 
 CREATE TABLE player_master
 (
