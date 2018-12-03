@@ -1,6 +1,6 @@
 <html>
 <head>
-    <title>Team Rankings</title>
+    <title>Cricket Analystics</title>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
@@ -21,6 +21,18 @@
     <?php include 'navBar.php';?>
 
     <div class="container container-fluid">
+<div >
+            <nav class="navbar navbar-default">
+                <div class="container-fluid">
+                    <div class="navbar-header">
+                        <a class="navbar-brand" href="AddTeam.php">Click here to create new Team</a>
+                    </div>
+
+                </div>
+            </nav>
+        </div>
+
+
     <h1 class="text-center">View All Teams</h1>
     <div class="container container-fluid">
 

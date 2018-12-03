@@ -67,4 +67,5 @@ where
 match_id = 1 and
 team_id_1_fk = 1;
 
+select * from match_master where match_id = 3;
 

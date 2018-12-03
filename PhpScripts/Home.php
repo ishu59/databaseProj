@@ -66,7 +66,20 @@
 </div>
         </div>
 
+        <div class="container container-fluid">
+            <div class="jumbotron" >
 
+
+                <h3 class="display-4">Analysis of Players</h3>
+
+                <div>
+                    <iframe width="933" height="700" src="https://app.powerbi.com/view?r=eyJrIjoiNTU5YjA2OTAtMzc3My00MzZjLWExMDEtYTc2MmUxYzhkZmQ3IiwidCI6IjllZjlmNDg5LWUwYTAtNGVlYi04N2NjLTNhNTI2MTEyZmQwZCIsImMiOjF9" frameborder="0" allowFullScreen="true"></iframe>
+                </div>
+
+            </div>
+
+        </div>
+        
         <div class="jumbotron">
 
             <h1 class="display-4">Upcoming Matches</h1>

@@ -62,8 +62,8 @@
                                 echo "<td>$row[series_name]</td>" ;
                                 echo "<td>$row[match_date]</td>";  
                                 echo "<td>$row[venue_name]</td>";  
-                                echo "<td><a href='updatefixture.php?id=$row[fixture_id]&series_name=$row[series_name]&match_date=$row[match_date]'><button>Update</button></a></td>";
-                                echo "<td><a href='deletefixture.php?id=$row[fixture_id]&series_name=$row[series_name]&match_date=$row[match_date]'><button>Delete</button></a></td></tr>";
+                                // echo "<td><a href='updatefixture.php?id=$row[fixture_id]&series_name=$row[series_name]&match_date=$row[match_date]'><button>Update</button></a></td>";
+                                // echo "<td><a href='deletefixture.php?id=$row[fixture_id]&series_name=$row[series_name]&match_date=$row[match_date]'><button>Delete</button></a></td></tr>";
                             }
                         };
 
