@@ -10,6 +10,7 @@ CREATE TABLE team_master
   team_name VARCHAR(100) NOT NULL UNIQUE,
   team_mascot VARCHAR(100) NOT NULL,
   team_desc VARCHAR(1000) NOT NULL,
+  team_ranking int(11) DEFAULT NULL,
   PRIMARY KEY (team_id)
 );
 

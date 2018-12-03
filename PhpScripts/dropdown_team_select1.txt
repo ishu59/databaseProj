@@ -1,0 +1,18 @@
+<?php
+                            global $conn;
+                            global $temp2;
+                            $temp2 = 'this temo text';
+                            $servername = "localhost";
+                            $username = "root";
+                            $password = "mysql";
+                            $database = "cricket_analytics";
+                            $conn = new mysqli($servername, $username, $password, $database);
+                            $sql = "select team_id,team_name from team_master;";
+                            $result = $conn->query($sql);
+                            if ($result) {
+                                echo "<table border=1px>";
+                                while ($row = $result->fetch_assoc()) {
+                                    $row[team_id],$row[team_id] == $t1_id ? 'selected="selected"' : ' ', $row[team_name]);
+                                }
+                            }
+                            ?>

@@ -1,0 +1,13 @@
+                    <select name="dept" id="dept"
+                            required class="form-control">
+
+                        <option value="Biology" <?php if($dept=="Biology") echo 'selected="selected"'; ?>  >Biology</option>
+                        <option value="Comp. Sci." <?php if($dept=="Comp. Sci.") echo 'selected="selected"'; ?>  >Comp. Sci.</option>
+                        <option value="Elec. Eng." <?php if($dept=="Elec. Eng.") echo 'selected="selected"'; ?>  >Elec. Eng.</option>
+                        <option value="Finance" <?php if($dept=="Finance") echo 'selected="selected"'; ?>  >Finance</option>
+                        <option value="History" <?php if($dept=="History") echo 'selected="selected"'; ?>  >History</option>
+                        <option value="Music" <?php if($dept=="Music") echo 'selected="selected"'; ?>  >Music</option>
+                        <option value="Physics" <?php if($dept=="Physics") echo 'selected="selected"'; ?>  >Physics</option>
+
+
+                    </select>

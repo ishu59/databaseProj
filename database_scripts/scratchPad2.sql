@@ -69,3 +69,15 @@ call sp_getAllVenue();
 
 call sp_insert_match_master(2,1,1,1,cast(now() as char),100,101,1,2,'test X');
 Insert into venue (venue_name,venue_city,venue_capacity) values ('Venue1','Pitt',100000);
+
+call sp_getMatchByID(19);
+call sp_update_venue(5,'Pitt ven 1','Pittsburgh',15232);
+
+call sp_update_venue(1,'2Pitt ven 1','Pittsburgh',15232);
+
+call sp_insert_match_master(4,3,4,1,'2018-11-27',100,200,1,2,' USA won');
+
+CALL `cricket_analytics`.`sp_insert_umpire`('Steve','buckner');
+CALL `cricket_analytics`.`sp_insert_umpire`('Tom','Hardy');
+CALL `cricket_analytics`.`sp_insert_umpire`('Jon','Snow');
+CALL `cricket_analytics`.`sp_insert_umpire`('Michaal','Jackson');
