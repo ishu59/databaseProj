@@ -20,3 +20,22 @@ INSERT INTO `team_master`
 select * from team_master;
 
 
+select * from player_master;
+
+#truncate table player_master;
+#truncate table match_umpire;
+select * from match_umpire;
+insert into match_umpire (first_name, last_name) values ('Valle', 'Hayesman');
+insert into match_umpire (first_name, last_name) values ('Nelia', 'Inglese');
+insert into match_umpire (first_name, last_name) values ('Miles', 'McShee');
+insert into match_umpire (first_name, last_name) values ('Ashlan', 'Oldnall');
+insert into match_umpire (first_name, last_name) values ('Britta', 'Furzey');
+
+
+select * from venue;
+#truncate table venue;
+insert into venue (venue_name, venue_city, venue_capacity) values ('Summer Ridge', 'London', 13078);
+insert into venue (venue_name, venue_city, venue_capacity) values ('Hoard', 'Mumbai', 11352);
+insert into venue (venue_name, venue_city, venue_capacity) values ('Chinook', 'Wojaszówka', 16495);
+insert into venue (venue_name, venue_city, venue_capacity) values ('Del Mar', 'Zhoujiang', 13746);
+insert into venue (venue_name, venue_city, venue_capacity) values ('Corry', 'Pittsburgh', 12027);
