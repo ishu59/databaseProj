@@ -21,11 +21,7 @@
     <?php include 'navBar.php';?>
 
     <div class="container container-fluid">
-<<<<<<< HEAD
     <h1 class="text-center">Venue All Teams</h1>
-=======
-    <legend>View All Teams</legend>
->>>>>>> b2b02530bcb5a5ca7ff48421779e58a8df421ef5
     <div class="container container-fluid">
 
         <table class="table table-condensed">

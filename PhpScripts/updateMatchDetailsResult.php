@@ -30,6 +30,8 @@
 
         //mysqli prepared statement
         $match_id = $_GET['match_id'];
+        $t1_id = $_GET['t1_id'];
+        $t2_id = $_GET['t2_id'];
 
         $t1_p1_id = $_GET['t1_p1_id'];
         $t1_p1_score = $_GET['t1_p1_score'];
@@ -78,7 +80,7 @@
         }
         echo "<p><font color=\"red\">Connected successfully</font></p>";
         $city = mysqli_real_escape_string($conn, $city);
-        $sql = "call sp_update_match_details3($match_id,
+        $sql = "call sp_update_match_details3($match_id,$t1_id,$t2_id,
     									$t1_p1_id,$t1_p1_score,$t1_p1_wickets,$t1_p1_balls_bowled,$t1_p1_balls_faced,
 										$t1_p2_id,$t1_p2_score,$t1_p2_wickets,$t1_p2_balls_bowled,$t1_p2_balls_faced,
 										$t1_p3_id,$t1_p3_score,$t1_p3_wickets,$t1_p3_balls_bowled,$t1_p3_balls_faced,
@@ -88,20 +90,20 @@
 										);";
         echo "$sql";
 
-        $result = mysqli_query($conn, $sql);
-
-        if (mysqli_num_rows($result) > 0) {
-            $row = mysqli_fetch_assoc($result);
-            $last_id = $row["match_id"];
-
-            echo "$last_id<br/>";
-            echo "Click below to enter match details. Match wont appear if no match data exist for a match <br/>";
-            echo "<a href='addMatchDetails.php?id=$last_id'><button class=\"btn btn-primary\"> Add Match Data</button></a>";
-            echo "<p>Match added Successfully </p>";
-        } else {
-            //echo "<p>Error: " . $sql . "<br>" . $conn->error." <a href='addStudent.html'>Try Again</a> </p></p>";
-            echo "<p>Something went wrong!</p>";
-        }
+//        $result = mysqli_query($conn, $sql);
+//
+//        if (mysqli_num_rows($result) > 0) {
+//            $row = mysqli_fetch_assoc($result);
+//            $last_id = $row["match_id"];
+//
+//            echo "$last_id<br/>";
+//            echo "Click below to enter match details. Match wont appear if no match data exist for a match <br/>";
+//            echo "<a href='addMatchDetails.php?id=$last_id'><button class=\"btn btn-primary\"> Add Match Data</button></a>";
+//            echo "<p>Match added Successfully </p>";
+//        } else {
+//            //echo "<p>Error: " . $sql . "<br>" . $conn->error." <a href='addStudent.html'>Try Again</a> </p></p>";
+//            echo "<p>Something went wrong!</p>";
+//        }
         ?>
     </div>
 </div>

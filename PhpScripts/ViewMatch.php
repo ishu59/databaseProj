@@ -69,13 +69,11 @@
                             echo "<td>$row[match_result]</b></td>";
                             echo "<td>$row[umpire_name]</b></td>";
                             echo "<td>$row[match_date]</b></td>";
-                            echo "<td><a href='updateMatchMaster.php?id=$row[match_id]'><button>Update</button></a></td></tr>";
+                            echo "<td><a href='updateMatchMaster.php?id=$row[match_id]'><button>Update Master</button></a></td>";
+                            echo "<td><a href='ViewMatchDetailsByMatch.php?match_id=$row[match_id]&t1_id=$row[team_id_1_fk]&t2_id=$row[team_id_2_fk]'><button>View Details</button></a></td></tr>";
                         }
                     };
-
                     ?>
-
-
                 </table>
 
             </div>
