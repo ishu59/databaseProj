@@ -97,9 +97,7 @@
             $last_id = $row["match_id"];
 
             echo "$last_id<br/>";
-            echo "Click below to enter match details. Match wont appear if no match data exist for a match <br/>";
-            echo "<a href='addMatchDetails.php?id=$last_id&t1_id=$t1_id&t2_id=$t2_id'><button class=\"btn btn-primary\"> Add Match Data</button></a>";
-            echo "<p>Match added Successfully </p>";
+            echo "<p>Match details added Successfully </p>";
         } else {
             //echo "<p>Error: " . $sql . "<br>" . $conn->error." <a href='addStudent.html'>Try Again</a> </p></p>";
             echo "<p>Something went wrong!</p>";

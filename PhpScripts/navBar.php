@@ -8,7 +8,7 @@
                 <a class="navbar-brand" href="home.php">Cricket Analytics</a>
             </div>
             <ul class="nav navbar-nav">
-                <li ><a href="#">Home</a></li>
+                <li ><a href="home.php">Home</a></li>
                 <li><a href="ViewMatch.php">Matches</a></li>
 
                 <li><a href="viewAllTeams.php">Teams</a></li>

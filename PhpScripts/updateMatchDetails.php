@@ -19,83 +19,71 @@
 </div>
 <div class="container">
     <?php include 'navBar.php'; ?>
-    <?php
-    global $conn;
+    <div class="container">
+        <?php
+        global $conn;
 
-    global $m_id;
-    global $t1_id;
-    global $t2_id;
-    $m_id = $_GET['id'];
-    $t1_id = $_GET["t1_id"];
-    $t2_id = $_GET["t2_id"];
+        global $m_id;
+        global $t_id;
+        global $p_id;
 
-    echo $m_id;
-    echo $t1_id;
-    echo $t2_id;
-    $servername = "localhost";
-    $username = "root";
-    $password = "mysql";
-    $database = "cricket_analytics";
-    $conn = new mysqli($servername, $username, $password, $database);
-    $sql = "call sp_getMatchByID($m_id);";
-    $result = $conn->query($sql);
-    if (mysqli_num_rows($result) > 0) {
-        $row = mysqli_fetch_assoc($result);
+        $p_id = $_GET['p_id'];
+        $m_id = $_GET['m_id'];
+        $detail_id = $_GET['detail_id'];
+        $score = $_GET['score'];
+        $wicket = $_GET['wicket'];
+        $bowled = $_GET['bowled'];
+        $faced = $_GET['faced'];
+        $t_id = $_GET['t_id'];
+        $p_name = $_GET['p_name'];
 
-    } else {
-        //echo "<p>Error: " . $sql . "<br>" . $conn->error." <a href='addStudent.html'>Try Again</a> </p></p>";
-        echo "<p>Something went wrong!</p>";
-    }
-    ?>
+//        $servername = "localhost";
+//        $username = "root";
+//        $password = "mysql";
+//        $database = "cricket_analytics";
+//        $conn = new mysqli($servername, $username, $password, $database);
+//        $sql = "call sp_getMatchByID($m_id);";
+        //    $result = $conn->query($sql);
+        //    if (mysqli_num_rows($result) > 0) {
+        //        $row = mysqli_fetch_assoc($result);
+        //
+        //    } else {
+        //        //echo "<p>Error: " . $sql . "<br>" . $conn->error." <a href='addStudent.html'>Try Again</a> </p></p>";
+        //        echo "<p>Something went wrong!</p>";
+        //    }
+        ?>
 
-    <!--Add code here-->
-    <form class="form-horizontal" action="addMatchDetailsResult3.php" method="GET">
-        <input name="match_id" id="match_id" value="<?=$m_id?>" hidden>
-        <input name="t1_id" id="t1_id" value="<?=$t1_id?>" hidden>
-        <input name="t2_id" id="t2_id" value="<?=$t2_id?>" hidden>
-        <fieldset>
-
-
-            <div class="col-md-6" style="float:left;">
+        <!--Add code here-->
+        <form class="form-horizontal" action="updateMatchDetailsResult.php" method="GET">
+            <input name="m_id" id="m_id" value="<?= $m_id ?>" hidden>
+            <input name="t_id" id="t_id" value="<?= $t_id ?>" hidden>
+            <input name="p_id" id="p_id" value="<?= $p_id ?>" hidden>
+            <input name="detail_id" id="detail_id" value="<?= $detail_id ?>" hidden>
+            <fieldset>
 
                 <!-- Form Name -->
                 <legend>TEAM 1</legend>
 
 
                 </br>
-                <!-- <legend>Player 1</legend>
-                 -->
+
 
                 <div class="form-group">
                     <label class="col-md-4 control-label" for="t1_p1_id">Player 1</label>
                     <div class="col-md-4">
-                        <select id="t1_p1_id" name="t1_p1_id" class="form-control">
-                            <?php
-                            global $conn;
-                            $servername = "localhost";
-                            $username = "root";
-                            $password = "mysql";
-                            $database = "cricket_analytics";
-                            $conn = new mysqli($servername, $username, $password, $database);
-                            $sql = "select player_id,player_name from player_master  where team_id_fk = $t1_id;";
-                            $result = $conn->query($sql);
-                            if ($result) {
-                                echo "<table border=1px>";
-                                while ($row = $result->fetch_assoc()) {
-                                    echo "<option value=$row[player_id]>$row[player_name]</option>";
-                                }
-                            }
-                            ?>
+                        <select id="t1_p1_id" name="t1_p1_id" class="form-control" disabled>
+                            <option value=<?= $p_id ?> ><?= $p_name ?></option>
                         </select>
                     </div>
                 </div>
-
 
                 <!-- Text input-->
                 <div class="form-group">
                     <label class="col-md-4 control-label" for="t1_p1_score">score</label>
                     <div class="col-md-4">
-                        <input id="t1_p1_score" name="t1_p1_score" type="text" =" " class="form-control input-md">
+                        <input id="score" name="t1_p1_score" type="text"
+                               value="<?= $score ?>"
+                               class="form-control input-md">
 
                     </div>
                 </div>
@@ -104,7 +92,9 @@
                 <div class="form-group">
                     <label class="col-md-4 control-label" for="t1_p1_wickets">wickets</label>
                     <div class="col-md-4">
-                        <input id="t1_p1_wickets" name="t1_p1_wickets" type="text" =" " class="form-control input-md">
+                        <input id="t1_p1_wickets" name="t1_p1_wickets" type="text"
+                               value="<?= $wicket ?>"
+                               class="form-control input-md">
 
                     </div>
                 </div>
@@ -113,8 +103,9 @@
                 <div class="form-group">
                     <label class="col-md-4 control-label" for="t1_p1_balls_bowled">balls bowled</label>
                     <div class="col-md-4">
-                        <input id="t1_p1_balls_bowled" name="t1_p1_balls_bowled" type="text" =" " class="
-                        form-control input-md">
+                        <input id="t1_p1_balls_bowled" name="t1_p1_balls_bowled" type="text"
+                               value="<?= $bowled ?>"
+                               class="form-control input-md">
 
                     </div>
                 </div>
@@ -123,374 +114,28 @@
                 <div class="form-group">
                     <label class="col-md-4 control-label" for="t1_p1_balls_faced">balls faced</label>
                     <div class="col-md-4">
-                        <input id="t1_p1_balls_faced" name="t1_p1_balls_faced" type="text" =" " class="
-                        form-control input-md">
+                        <input id="t1_p1_balls_faced" name="t1_p1_balls_faced" type="text"
+                               value="<?= $faced ?>"
+                               class="form-control input-md">
 
                     </div>
                 </div>
 
 
-                </br>
-                <!-- <legend>Player 2</legend> -->
+                <!-- Button -->
                 <div class="form-group">
-                    <label class="col-md-4 control-label" for="t1_p2_id">Player 2</label>
+                    <label class="col-md-4 control-label" for="teamSubmit"></label>
                     <div class="col-md-4">
-                        <select id="t1_p2_id" name="t1_p2_id" class="form-control">
-                            <?php
-                            global $conn;
-                            $servername = "localhost";
-                            $username = "root";
-                            $password = "mysql";
-                            $database = "cricket_analytics";
-                            $conn = new mysqli($servername, $username, $password, $database);
-                            $sql = "select player_id,player_name from player_master  where team_id_fk = $t1_id;";
-                            $result = $conn->query($sql);
-                            if ($result) {
-                                echo "<table border=1px>";
-                                while ($row = $result->fetch_assoc()) {
-                                    echo "<option value=$row[player_id]>$row[player_name]</option>";
-                                }
-                            }
-                            ?>
-                        </select>
+                        <button id="teamSubmit" name="teamSubmit" class="btn btn-primary btn-lg">Submit</button>
                     </div>
                 </div>
 
 
-                <!-- Text input---------------------------------------------------------------------------------------------------------------------------------------------------->
-                <div class="form-group">
-                    <label class="col-md-4 control-label" for="t1_p2_score">score</label>
-                    <div class="col-md-4">
-                        <input id="t1_p2_score" name="t1_p2_score" type="text" =" " class="form-control input-md">
-
-                    </div>
-                </div>
-
-                <!-- Text input-->
-                <div class="form-group">
-                    <label class="col-md-4 control-label" for="t1_p2_wickets">wickets</label>
-                    <div class="col-md-4">
-                        <input id="t1_p2_wickets" name="t1_p2_wickets" type="text" =" " class="form-control input-md">
-
-                    </div>
-                </div>
-
-                <!-- Text input-->
-                <div class="form-group">
-                    <label class="col-md-4 control-label" for="t1_p2_balls_bowled">balls bowled</label>
-                    <div class="col-md-4">
-                        <input id="t1_p2_balls_bowled" name="t1_p2_balls_bowled" type="text" =" " class="
-                        form-control input-md">
-
-                    </div>
-                </div>
-
-                <!-- Text input-->
-                <div class="form-group">
-                    <label class="col-md-4 control-label" for="t1_p2_balls_faced">balls faced</label>
-                    <div class="col-md-4">
-                        <input id="t1_p2_balls_faced" name="t1_p2_balls_faced" type="text" =" " class="
-                        form-control input-md">
-
-                    </div>
-                </div>
-
-
-                </br>
-                <!-- <legend>Player 3</legend> -->
-                <div class="form-group">
-                    <label class="col-md-4 control-label" for="t1_p3_id">Player 3</label>
-                    <div class="col-md-4">
-                        <select id="t1_p3_id" name="t1_p3_id" class="form-control">
-                            <?php
-                            global $conn;
-                            $servername = "localhost";
-                            $username = "root";
-                            $password = "mysql";
-                            $database = "cricket_analytics";
-                            $conn = new mysqli($servername, $username, $password, $database);
-                            $sql = "select player_id,player_name from player_master  where team_id_fk = $t1_id;";
-                            $result = $conn->query($sql);
-                            if ($result) {
-                                echo "<table border=1px>";
-                                while ($row = $result->fetch_assoc()) {
-                                    echo "<option value=$row[player_id]>$row[player_name]</option>";
-                                }
-                            }
-                            ?>
-                        </select>
-                    </div>
-                </div>
-
-
-                <!-- Text input---------------------------------------------------------------------------------------------------------------------------------------------------->
-                <div class="form-group">
-                    <label class="col-md-4 control-label" for="t1_p3_score">score</label>
-                    <div class="col-md-4">
-                        <input id="t1_p3_score" name="t1_p3_score" type="text" =" " class="form-control input-md">
-
-                    </div>
-                </div>
-
-                <!-- Text input-->
-                <div class="form-group">
-                    <label class="col-md-4 control-label" for="t1_p3_wickets">wickets</label>
-                    <div class="col-md-4">
-                        <input id="t1_p3_wickets" name="t1_p3_wickets" type="text" =" " class="form-control input-md">
-
-                    </div>
-                </div>
-
-                <!-- Text input-->
-                <div class="form-group">
-                    <label class="col-md-4 control-label" for="t1_p3_balls_bowled">balls bowled</label>
-                    <div class="col-md-4">
-                        <input id="t1_p3_balls_bowled" name="t1_p3_balls_bowled" type="text" =" " class="
-                        form-control input-md">
-
-                    </div>
-                </div>
-
-                <!-- Text input-->
-                <div class="form-group">
-                    <label class="col-md-4 control-label" for="t1_p3_balls_faced">balls faced</label>
-                    <div class="col-md-4">
-                        <input id="t1_p3_balls_faced" name="t1_p3_balls_faced" type="text" =" " class="
-                        form-control input-md">
-
-                    </div>
-                </div>
-
-
-                </br>
-
-
-            </div>
-
-
-            <div class="col-md-6" style="float:right;">
-
-                <!-- Text input---------------------------------------------------------------------------------------------------------------------------------------------------->
-                <legend>TEAM 2</legend>
-
-                </br>
-                <!-- <legend>Player 1</legend> -->
-
-                <div class="form-group">
-                    <label class="col-md-4 control-label" for="t2_p1_id">Player 1</label>
-                    <div class="col-md-4">
-                        <select id="t2_p1_id" name="t2_p1_id" class="form-control">
-                            <?php
-                            global $conn;
-                            $servername = "localhost";
-                            $username = "root";
-                            $password = "mysql";
-                            $database = "cricket_analytics";
-                            $conn = new mysqli($servername, $username, $password, $database);
-                            $sql = "select player_id,player_name from player_master  where team_id_fk = $t2_id;";
-                            $result = $conn->query($sql);
-                            if ($result) {
-                                echo "<table border=1px>";
-                                while ($row = $result->fetch_assoc()) {
-                                    echo "<option value=$row[player_id]>$row[player_name]</option>";
-                                }
-                            }
-                            ?>
-                        </select>
-                    </div>
-                </div>
-
-                <!-- Text input-->
-                <div class="form-group">
-                    <label class="col-md-4 control-label" for="t2_p1_score">score</label>
-                    <div class="col-md-4">
-                        <input id="t2_p1_score" name="t2_p1_score" type="text" =" " class="form-control input-md">
-
-                    </div>
-                </div>
-
-                <!-- Text input-->
-                <div class="form-group">
-                    <label class="col-md-4 control-label" for="t2_p1_wickets">wickets</label>
-                    <div class="col-md-4">
-                        <input id="t2_p1_wickets" name="t2_p1_wickets" type="text" =" " class="form-control input-md">
-
-                    </div>
-                </div>
-
-                <!-- Text input-->
-                <div class="form-group">
-                    <label class="col-md-4 control-label" for="t2_p1_balls_bowled">balls bowled</label>
-                    <div class="col-md-4">
-                        <input id="t2_p1_balls_bowled" name="t2_p1_balls_bowled" type="text" =" " class="
-                        form-control input-md">
-
-                    </div>
-                </div>
-
-                <!-- Text input-->
-                <div class="form-group">
-                    <label class="col-md-4 control-label" for="t2_p1_balls_faced">balls faced</label>
-                    <div class="col-md-4">
-                        <input id="t2_p1_balls_faced" name="t2_p1_balls_faced" type="text" =" " class="
-                        form-control input-md">
-
-                    </div>
-                </div>
-
-
-                </br>
-                <!-- <legend>Player 2</legend> -->
-
-                <div class="form-group">
-                    <label class="col-md-4 control-label" for="t2_p2_id">Player 2</label>
-                    <div class="col-md-4">
-                        <select id="t2_p2_id" name="t2_p2_id" class="form-control">
-                            <?php
-                            global $conn;
-                            $servername = "localhost";
-                            $username = "root";
-                            $password = "mysql";
-                            $database = "cricket_analytics";
-                            $conn = new mysqli($servername, $username, $password, $database);
-                            $sql = "select player_id,player_name from player_master  where team_id_fk = $t2_id;";
-                            $result = $conn->query($sql);
-                            if ($result) {
-                                echo "<table border=1px>";
-                                while ($row = $result->fetch_assoc()) {
-                                    echo "<option value=$row[player_id]>$row[player_name]</option>";
-                                }
-                            }
-                            ?>
-                        </select>
-                    </div>
-                </div>
-
-                <!-- Text input---------------------------------------------------------------------------------------------------------------------------------------------------->
-                <div class="form-group">
-                    <label class="col-md-4 control-label" for="t2_p2_score">score</label>
-                    <div class="col-md-4">
-                        <input id="t2_p2_score" name="t2_p2_score" type="text" =" " class="form-control input-md">
-
-                    </div>
-                </div>
-
-                <!-- Text input-->
-                <div class="form-group">
-                    <label class="col-md-4 control-label" for="t2_p2_wickets">wickets</label>
-                    <div class="col-md-4">
-                        <input id="t2_p2_wickets" name="t2_p2_wickets" type="text" =" " class="form-control input-md">
-
-                    </div>
-                </div>
-
-                <!-- Text input-->
-                <div class="form-group">
-                    <label class="col-md-4 control-label" for="t2_p2_balls_bowled">balls bowled</label>
-                    <div class="col-md-4">
-                        <input id="t2_p2_balls_bowled" name="t2_p2_balls_bowled" type="text" =" " class="
-                        form-control input-md">
-
-                    </div>
-                </div>
-
-                <!-- Text input-->
-                <div class="form-group">
-                    <label class="col-md-4 control-label" for="t2_p2_balls_faced">balls faced</label>
-                    <div class="col-md-4">
-                        <input id="t2_p2_balls_faced" name="t2_p2_balls_faced" type="text" =" " class="
-                        form-control input-md">
-
-                    </div>
-                </div>
-
-
-                </br>
-                <!-- <legend>Player 3</legend> -->
-
-                <div class="form-group">
-                    <label class="col-md-4 control-label" for="t2_p3_id">Player 3</label>
-                    <div class="col-md-4">
-                        <select id="t2_p3_id" name="t2_p3_id" class="form-control">
-                            <?php
-                            global $conn;
-                            $servername = "localhost";
-                            $username = "root";
-                            $password = "mysql";
-                            $database = "cricket_analytics";
-                            $conn = new mysqli($servername, $username, $password, $database);
-                            $sql = "select player_id,player_name from player_master  where team_id_fk = $t2_id;";
-                            $result = $conn->query($sql);
-                            if ($result) {
-                                echo "<table border=1px>";
-                                while ($row = $result->fetch_assoc()) {
-                                    echo "<option value=$row[player_id]>$row[player_name]</option>";
-                                }
-                            }
-                            ?>
-                        </select>
-                    </div>
-                </div>
-
-                <!-- Text input---------------------------------------------------------------------------------------------------------------------------------------------------->
-                <div class="form-group">
-                    <label class="col-md-4 control-label" for="t2_p3_score">score</label>
-                    <div class="col-md-4">
-                        <input id="t2_p3_score" name="t2_p3_score" type="text" =" " class="form-control input-md">
-
-                    </div>
-                </div>
-
-                <!-- Text input-->
-                <div class="form-group">
-                    <label class="col-md-4 control-label" for="t2_p3_wickets">wickets</label>
-                    <div class="col-md-4">
-                        <input id="t2_p3_wickets" name="t2_p3_wickets" type="text" =" " class="form-control input-md">
-
-                    </div>
-                </div>
-
-                <!-- Text input-->
-                <div class="form-group">
-                    <label class="col-md-4 control-label" for="t2_p3_balls_bowled">balls bowled</label>
-                    <div class="col-md-4">
-                        <input id="t2_p3_balls_bowled" name="t2_p3_balls_bowled" type="text" =" " class="
-                        form-control input-md">
-
-                    </div>
-                </div>
-
-                <!-- Text input-->
-                <div class="form-group">
-                    <label class="col-md-4 control-label" for="t2_p3_balls_faced">balls faced</label>
-                    <div class="col-md-4">
-                        <input id="t2_p3_balls_faced" name="t2_p3_balls_faced" type="text" =" " class="
-                        form-control input-md">
-
-                    </div>
-                </div>
-
-
-                </br>
-
-
-            </div>
-
-            <br>
-            <!-- Button -->
-            <div class="form-group">
-                <label class="col-md-4 control-label" for="teamSubmit"></label>
-                <div class="col-md-4">
-                    <button id="teamSubmit" name="teamSubmit" class="btn btn-primary btn-lg">Submit</button>
-                </div>
-            </div>
-
-
-        </fieldset>
-
+            </fieldset>
+        </form>
+    </div>
 </div>
 
-</form>
 
 </body>
 </html>

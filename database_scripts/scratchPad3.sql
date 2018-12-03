@@ -42,6 +42,29 @@ join team_master as tm on md.team_id_fk = tm.team_id
 join player_master as pm on md.player_id_fk = pm.player_id
 where match_id_fk = 1 and md.team_id_fk =1;
 
-call get_matchDetailsbyID_teamId(1,1);
+select * from match_details where match_id_fk = 1 and team_id_fk = 1;
+select sum(player_score) from match_details where match_id_fk = 1 and team_id_fk = 1;
 
-#join player_master as pm on pm.team_id_fk = tm.team_id
+call sp_update_match_details3(1,1,16,3,1,1,1,9);
+select * from match_master where match_id =1;
+
+select sum(player_score) from match_details where match_id_fk = 1 and team_id_fk = 1;
+select * from match_details where match_detail_id = 3;
+
+update match_master
+set
+score_team_1 = (select sum(player_score) from match_details where match_id_fk = 1 and team_id_fk = 1),
+wicket_team_1 = (select sum(player_wickets) from match_details where match_id_fk = 1 and team_id_fk = 1)
+where 
+match_id = 1 and
+team_id_1_fk = 1;
+
+update match_master
+set
+score_team_2 = (select sum(player_score) from match_details where match_id_fk = 1 and team_id_fk = 1),
+wicket_team_2 = (select sum(player_wickets) from match_details where match_id_fk = 1 and team_id_fk = 1)
+where 
+match_id = 1 and
+team_id_1_fk = 1;
+
+

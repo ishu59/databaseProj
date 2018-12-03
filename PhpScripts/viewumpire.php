@@ -1,6 +1,6 @@
 <html>
 <head>
-    <title>view umpire</title>
+    <title>Cricket Analystics</title>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
@@ -26,7 +26,7 @@
             <nav class="navbar navbar-default">
                 <div class="container-fluid">
                     <div class="navbar-header">
-                        <a class="navbar-brand" href="AddVenue.php">Click here to create add new Umpire</a>
+                        <a class="navbar-brand" href="addUmpire.php">Click here to create add new Umpire</a>
                     </div>
 
                 </div>
@@ -53,10 +53,12 @@
                         $sql = "select umpire_id,first_name,last_name from match_umpire";
                         $result = $conn->query($sql);
                         if($result){
+                            echo "<td><b>First Name</b></td>";
+                                echo "<td><b>Last Name</b></td></tr>";
                             while($row = $result->fetch_assoc()) {
                                 echo "<tr>";
-                                echo "<td><b>$row[first_name]</b></td>";
-                                echo "<td><b>$row[last_name]</b></td></tr>";
+                                echo "<td>$row[first_name]</b></td>";
+                                echo "<td>$row[last_name]</b></td></tr>";
                             
 
                             }

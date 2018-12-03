@@ -1,7 +1,8 @@
 CREATE DEFINER=`root`@`localhost` PROCEDURE `get_matchDetailsbyID_teamId`(in m_id int,in t_id int)
 BEGIN
 #call get_matchDetailsbyID_teamId(1,1);
-select 
+select
+match_detail_id, 
 match_id_fk, 
 player_id_fk,
 player_score,
