@@ -20,45 +20,41 @@
 <div>
     <?php include 'navBar.php';?>
 
-    <div class="container">
-        <!--Add code here-->
+    <div class="container container-fluid">
+    <legend>View All Teams</legend>
+    <div class="container container-fluid">
 
+        <table class="table table-condensed">
+            <?php
+            global $conn;
+            $servername = "localhost";
+            $username = "root";
+            $password = "mysql";
+            $database = "cricket_analytics";
+            $conn = new mysqli($servername, $username, $password, $database);
+            $sql = "call sp_getAllTeams()";
+            $result = $conn->query($sql);
+            if($result){
+                            echo "<td><b>Team</b></td>";
+                            echo "<td><b>Rankings</b></td>";
+                            
 
-        <div align="center">
-            <caption><h2><ins><i>CRICKET TEAM RAKINGS</i></ins></h2></caption>
-        </div>
-
-        <table style="width:65%;height:70%;" align="center">
-
-            <tr>
-                <th colspan="4" style="background-color:#5E1D55;color:white;"><h3>TEST RAKINGS</h3></th>
-            </tr>
-
-            <tr style="background-color:#32A9EE;
-                color:white;">
-                <th>Rank</th>
-                <th>Team</th>
-
-            </tr>
-
-
-<?php
-global $conn;
-$servername = "localhost";
-$username = "root";
-$password = "mysql";
-$database = "cricket_analytics";
-$conn = new mysqli($servername, $username, $password, $database);
-$sql = "call sp_getAllTeams()";
-$result = $conn->query($sql);
-if($result){
-    while($row = $result->fetch_assoc()) {
-        echo "<tr><td><b>$row[team_ranking]</b></td><td><a href='$row[team_id]'>$row[team_name]</a></td></tr>";
-
-                    }
-                };
+                            
+                while($row = $result->fetch_assoc()) {
+                    echo "<tr>";
+                    echo "<td>$row[team_name]</b></td>";
+                    echo "<td>$row[team_ranking]</b></td>";
+                    
+                    // echo "<td><a href='updatePlayer.php?id=$row[player_id]&teamname=$row[teamName]&dob=$row[Player_dob]&nationality=$row[player_nationality]&name=$row[player_name]'><button>Update</button></a></td></tr>";
+                }
+            };
 
             ?>
+
+
+        </table>
+
+        
 
 
     </div>
