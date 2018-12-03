@@ -53,11 +53,15 @@
                         $sql = "call sp_getAllVenue()";
                         $result = $conn->query($sql);
                         if($result){
+                            echo "<td><b>Venue</b></td>";
+                            echo "<td><b>City</b></td>";
+                            echo "<td><b>Capacity</b></td>";
+                            
                             while($row = $result->fetch_assoc()) {
                                 echo "<tr>";
-                                echo "<td><b>$row[venue_name]</b></td>";
-                                echo "<td><b>$row[venue_city]</b></td>";
-                                echo "<td><b>$row[venue_capacity]</b></td>";
+                                echo "<td>$row[venue_name]</b></td>";
+                                echo "<td>$row[venue_city]</b></td>";
+                                echo "<td>$row[venue_capacity]</b></td>";
 
                                 echo "<td><a href='updateVenue.php?id=$row[venue_id]&name=$row[venue_name]&city=$row[venue_city]&cap=$row[venue_capacity]'><button>Update</button></a></td></tr>";
                             }
@@ -121,7 +125,6 @@
         </div>
 
     </div>
-</div>
 </div>
 </body>
 </html>
