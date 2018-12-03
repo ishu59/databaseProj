@@ -75,10 +75,13 @@ CREATE TABLE match_details
   player_wickets INT NOT NULL,
   player_balls_bowled INT NOT NULL,
   player_balls_faced INT NOT NULL,
+  team_id_fk INT NOT NULL,
   PRIMARY KEY (match_detail_id),
   FOREIGN KEY (match_id_fk) REFERENCES match_master(match_id),
-  FOREIGN KEY (player_id_fk) REFERENCES player_master(player_id)
+  FOREIGN KEY (player_id_fk) REFERENCES player_master(player_id),
+  FOREIGN KEY (team_id_fk) REFERENCES team_master(team_id)
 );
+
 
 CREATE TABLE fixture_master
 (
