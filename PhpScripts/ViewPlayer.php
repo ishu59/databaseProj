@@ -75,12 +75,18 @@
             $sql = "call sp_getAllPlayer()";
             $result = $conn->query($sql);
             if($result){
+                            echo "<td><b>Player name</b></td>";
+                            echo "<td><b>Age</b></td>";
+                            echo "<td><b>Nationality</b></td>";
+                            echo "<td><b>Team</b></td>";
+
+                            
                 while($row = $result->fetch_assoc()) {
                     echo "<tr>";
-                    echo "<td><b>$row[player_name]</b></td>";
-                    echo "<td><b>$row[age]</b></td>";
-                    echo "<td><b>$row[player_nationality]</b></td>";
-                    echo "<td><b>$row[teamName]</b></td>";
+                    echo "<td>$row[player_name]</b></td>";
+                    echo "<td>$row[age]</b></td>";
+                    echo "<td>$row[player_nationality]</b></td>";
+                    echo "<td>$row[teamName]</b></td>";
                     echo "<td><a href='updatePlayer.php?id=$row[player_id]&teamname=$row[teamName]&dob=$row[Player_dob]&nationality=$row[player_nationality]&name=$row[player_name]'><button>Update</button></a></td></tr>";
                 }
             };

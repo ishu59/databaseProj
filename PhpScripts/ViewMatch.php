@@ -47,20 +47,29 @@
                     $sql = "call sp_getAllMatches()";
                     $result = $conn->query($sql);
                     if($result){
+                            echo "<td><b>Team 1</b></td>";
+                            echo "<td><b>Team 2</b></td>";
+                            echo "<td><b>venue</b></td>";
+                            echo "<td><b>Team 1 score</b></td>";
+                            echo "<td><b>Team 2 score</b></td>";
+                            echo "<td><b>Wickets taken by team 1</b></td>";
+                            echo "<td><b>Wickets taken by team 2</b></td>";
+                            echo "<td><b>Match Result</b></td>";
+                            echo "<td><b>Umpire</b></td>";
+                            echo "<td><b>Date</b></td>";
                         while($row = $result->fetch_assoc()) {
                             echo "<tr>";
-                            echo "<td><b>$row[team_name_1]</b></td>";
-                            echo "<td><b>$row[team_name_2]</b></td>";
-                            echo "<td><b>$row[venue_name]</b></td>";
-                            echo "<td><b>$row[score_team_1]</b></td>";
-                            echo "<td><b>$row[score_team_2]</b></td>";
-                            echo "<td><b>$row[wicket_team_1]</b></td>";
-                            echo "<td><b>$row[wicket_team_2]</b></td>";
-                            echo "<td><b>$row[match_result]</b></td>";
-                            echo "<td><b>$row[umpire_name]</b></td>";
-                            echo "<td><b>$row[match_date]</b></td>";
-                            echo "<td><a href='updateMatchMaster.php?id=$row[match_id]'><button>Update</button></a></td>";
-                            echo "<td><a href='updateMatchDetails.php?id=$row[match_id]&t1_id=$row[team_id_1_fk]&t2_id=$row[team_id_2_fk]'><button>Update Details</button></a></td></tr>";
+                            echo "<td>$row[team_name_1]</b></td>";
+                            echo "<td>$row[team_name_2]</b></td>";
+                            echo "<td>$row[venue_name]</b></td>";
+                            echo "<td>$row[score_team_1]</b></td>";
+                            echo "<td>$row[score_team_2]</b></td>";
+                            echo "<td>$row[wicket_team_1]</b></td>";
+                            echo "<td>$row[wicket_team_2]</b></td>";
+                            echo "<td>$row[match_result]</b></td>";
+                            echo "<td>$row[umpire_name]</b></td>";
+                            echo "<td>$row[match_date]</b></td>";
+                            echo "<td><a href='updateMatchMaster.php?id=$row[match_id]'><button>Update</button></a></td></tr>";
                         }
                     };
 
