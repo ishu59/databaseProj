@@ -1,8 +1,8 @@
 <div class="container">
-       <!-- Static navbar -->
+    <!-- Static navbar -->
 
 
-    <nav class="navbar navbar-inverse">
+    <nav class="navbar navbar-default">
         <div class="container-fluid">
             <div class="navbar-header">
                 <a class="navbar-brand" href="home.php">Cricket Analytics</a>
@@ -10,10 +10,12 @@
             <ul class="nav navbar-nav">
                 <li ><a href="#">Home</a></li>
                 <li><a href="ViewMatch.php">Matches</a></li>
-                <li><a href="ViewPlayer.php">Player</a></li>
-                <li><a href="viewAllTeams.php">Team</a></li>
+
+                <li><a href="viewAllTeams.php">Teams</a></li>
+                <li><a href="ViewPlayer.php">Players</a></li>
                 <li><a href="viewVenue.php">Venue</a></li>
-                <li><a href="#">Umpire</a></li>
+                <li><a href="viewumpire.php">Umpire</a></li>
+                <li><a href="viewfixture.php.">Fixtures</a></li>
             </ul>
         </div>
     </nav>

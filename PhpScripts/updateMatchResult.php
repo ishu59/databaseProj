@@ -29,6 +29,7 @@
         $database = "cricket_analytics";
 
         //mysqli prepared statement
+        $m_id = $_GET['match_id'];
         $team1_id = $_GET['team1_id'];
         $team2_id = $_GET['team2_id'];
         $venue_id = $_GET['venue_id'];
@@ -47,8 +48,8 @@
         }
         echo "<p><font color=\"red\">Connected successfully</font></p>";
         $city = mysqli_real_escape_string($conn, $city);
-        $sql = "call sp_insert_match_master($team1_id,$team2_id,$venue_id,$ump_id,'$m_date',$score_t1,$score_t2,$wicket_1,$wicket_2,'$m_result');";
-        //echo "$sql";
+        $sql = "call sp_update_match_master($m_id, $team1_id,$team2_id,$venue_id,$ump_id,'$m_date',$score_t1,$score_t2,$wicket_1,$wicket_2,'$m_result');";
+        echo "$sql";
 
         $result = mysqli_query($conn, $sql);
 
@@ -58,7 +59,7 @@
 
             echo "$last_id<br/>";
             echo "Click below to enter match details. Match wont appear if no match data exist for a match <br/>";
-            echo "<a href='addMatchDetails3.php?id=$last_id&t1_id=$team1_id&t2_id=$team2_id'><button class=\"btn btn-primary\"> Add Match Data</button></a>";
+            echo "<a href='addMatchDetails.php?id=$last_id'><button class=\"btn btn-primary\"> Add Match Data</button></a>";
             echo "<p>Match added Successfully </p>";
         } else {
             //echo "<p>Error: " . $sql . "<br>" . $conn->error." <a href='addStudent.html'>Try Again</a> </p></p>";

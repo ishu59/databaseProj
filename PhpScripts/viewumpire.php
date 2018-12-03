@@ -1,6 +1,6 @@
 <html>
 <head>
-    <title>Home Delivery Restaurants</title>
+    <title>view umpire</title>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
@@ -26,7 +26,7 @@
             <nav class="navbar navbar-default">
                 <div class="container-fluid">
                     <div class="navbar-header">
-                        <a class="navbar-brand" href="AddVenue.php">Click here to create new Venue</a>
+                        <a class="navbar-brand" href="AddVenue.php">Click here to create add new Umpire</a>
                     </div>
 
                 </div>
@@ -34,7 +34,7 @@
         </div>
 
 
-        <h1 class="text-center">Venue Description</h1>
+        <h1 class="text-center">Umpire Description</h1>
 
 
         <div class="container">
@@ -50,16 +50,15 @@
                         $password = "mysql";
                         $database = "cricket_analytics";
                         $conn = new mysqli($servername, $username, $password, $database);
-                        $sql = "call sp_getAllVenue()";
+                        $sql = "select umpire_id,first_name,last_name from match_umpire";
                         $result = $conn->query($sql);
                         if($result){
                             while($row = $result->fetch_assoc()) {
                                 echo "<tr>";
-                                echo "<td><b>$row[venue_name]</b></td>";
-                                echo "<td><b>$row[venue_city]</b></td>";
-                                echo "<td><b>$row[venue_capacity]</b></td>";
+                                echo "<td><b>$row[first_name]</b></td>";
+                                echo "<td><b>$row[last_name]</b></td></tr>";
+                            
 
-                                echo "<td><a href='updateVenue.php?id=$row[venue_id]&name=$row[venue_name]&city=$row[venue_city]&cap=$row[venue_capacity]'><button>Update</button></a></td></tr>";
                             }
                         };
 
@@ -121,7 +120,6 @@
         </div>
 
     </div>
-</div>
 </div>
 </body>
 </html>
