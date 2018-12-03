@@ -27,7 +27,7 @@ CREATE TABLE `match_umpire` (
   `first_name` varchar(50) NOT NULL,
   `last_name` varchar(50) NOT NULL,
   PRIMARY KEY (`umpire_id`)
-  )
+  );
 
 
 CREATE TABLE player_master
@@ -83,12 +83,10 @@ CREATE TABLE fixture_master
 (
 fixture_id INT NOT NULL AUTO_INCREMENT,
 series_name VARCHAR(50) NOT NULL UNIQUE,
-match_id_fk INT NOT NULL,
 match_date DATETIME,
 venue_id_fk INT NOT NULL,
 
 PRIMARY KEY (fixture_id),
-FOREIGN KEY (match_id_fk) REFERENCES match_master(match_id),
 FOREIGN KEY (venue_id_fk) REFERENCES venue (venue_id)
 );
 
